@@ -1,0 +1,115 @@
+.home-container {
+    text-align: center;
+    padding: 50px;
+    /* background: linear-gradient(135deg, #1d1a18, #c89116); */
+    background: url('../images/image01.jpg') no-repeat center center/cover;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    color: #141212;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(252, 251, 251, 0.866);
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card {
+    width: 250px;
+    height: 150px;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .student {
+    background:  linear-gradient(135deg, #3498db, #b6c7db);
+   
+  }
+  
+  .teacher {
+    background: linear-gradient(135deg, #e67e22 , #e2bd6e);
+    
+  }
+  
+  .admin {
+    background: linear-gradient(135deg, #0c8c1b , #9fdf99);
+    
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  /* Responsive design */
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .home-container {
+      padding: 30px;
+      height: auto;
+  }
+
+  .home-title {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+  }
+
+  .card-container {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .card {
+      width: 90%;
+      height: auto;
+      padding: 15px;
+      font-size: 1rem;
+  }
+}
+
+/* Small Mobile Devices (max-width: 400px) */
+@media (max-width: 400px) {
+  .home-container {
+      padding: 20px;
+      height: auto;
+  }
+
+  .home-title {
+      font-size: 1.5rem;
+  }
+
+  .card-container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .card {
+      width: 80%;
+      height: auto;
+      padding: 15px;
+      font-size: 0.9rem;
+  }
+}
