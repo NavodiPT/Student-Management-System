@@ -1,0 +1,89 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #2980b9, #6dd5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInTitle 0.8s ease-in-out;
+}
+
+.form {
+    background: white;
+    padding: 60px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 540;
+    color: #34495e;
+}
+
+input, select {
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #2980b9;
+}
+
+button {
+    background: #2980b9;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #1c638d;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .form {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}

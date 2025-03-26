@@ -1,0 +1,81 @@
+/* Styles for the User List Page */
+.user-list-container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.create-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.create-button:hover {
+    background: #45a049;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.user-table th {
+    background: #4CAF50;
+    color: white;
+}
+
+.update-btn, .delete-btn {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.update-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.update-btn:hover {
+    background: #1976D2;
+}
+
+.delete-btn {
+    background: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #d32f2f;
+}
+
+.no-users {
+    font-size: 1.2rem;
+    color: #888;
+    margin-top: 20px;
+}
