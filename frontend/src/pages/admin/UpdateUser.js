@@ -21,7 +21,14 @@ export default function UpdateUser() {
         const fetchUser = async() =>{
             try {
                 const response = await axios.get(`http://localhost:5000/api/auth/${id}`);
-                setForm(response.data)
+                console.log("Fetched User Data:", response.data); // Debugging line
+                setForm({
+                    name: response.data.name || '',
+                    userId: response.data.userId || '',
+                    email: response.data.email || '',
+                    password: response.data.password || '',
+                    role: response.data.role || ''
+                });
             } catch (error) {
                 console.log('Error fetching the user:', error)
             }
@@ -52,25 +59,25 @@ export default function UpdateUser() {
 
 
   return (
-    <div>
-         <div className='form' onSubmit={handleSubmit}>
-      <h1>UPDATE USER</h1>
-        <label>Name :</label>
+    <div className='container'>
+    <form className='form' onSubmit={handleSubmit}>
+      <h1 className='h1-text'>UPDATE USER</h1>
+        <label className='label-form'>Name :</label>
         <input type='text' name="name" placeholder='Enter user name' required value={form.name} onChange={handleChange}/>
 
 
-        <label>User ID :</label>
+        <label className='label-form'>User ID :</label>
         <input type='text' name="userId" placeholder='Enter user ID' required value={form.userId} onChange={handleChange}/>
 
         
-        <label>Email :</label>
+        <label className='label-form'>Email :</label>
         <input type='email' name="email" placeholder='Enter user email' required value={form.email} onChange={handleChange}/>
 
-        <label>Password :</label>
+        <label className='label-form'>Password :</label>
         <input type="password" name="password" required value={form.password} onChange={handleChange}/>
 
-        <label>Role :</label>
-        <select name="role" value={form.role} onChange={handleChange} required>
+        <label className='label-form'>Role :</label>
+        <select name="role" value={form.role ?? ""} onChange={handleChange} required>
                     <option value="">Select Role</option>
                     <option value="Student">Student</option>
                     <option value="Teacher">Teacher</option>
@@ -82,7 +89,7 @@ export default function UpdateUser() {
 
         <button type="submit">Update User</button>
 
-      </div>
+      </form>
     </div>
   )
 }

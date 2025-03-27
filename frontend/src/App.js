@@ -22,7 +22,7 @@ function App() {
     <Route exact path= "/teacher" element={<TeacherHome />}></Route>
     <Route exact path= "/admin" element={<AdminHome />}></Route>
     <Route exact path= "/addUser" element={<AddUser />}></Route>
-    <Route exact path="/updateUser" element={<UpdateUser/>}></Route>
+    <Route exact path="/updateUser/:id" element={<UpdateUser/>}></Route>
     <Route exact path="/viewUserList" element={<ViewUserList/>}></Route>
 
     </Routes>

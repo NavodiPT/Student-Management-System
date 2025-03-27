@@ -1,7 +1,6 @@
 .home-container {
     text-align: center;
     padding: 50px;
-    /* background: linear-gradient(135deg, #1d1a18, #c89116); */
     background: url('../images/image01.jpg') no-repeat center center/cover;
     height: 90vh;
     display: flex;
@@ -43,18 +42,13 @@
   }
   
   .student {
-    background:  linear-gradient(135deg, #3498db, #b6c7db);
-   
+      background: linear-gradient(135deg, #3498db, #b6c7db) !important;
   }
-  
   .teacher {
-    background: linear-gradient(135deg, #e67e22 , #e2bd6e);
-    
+      background: linear-gradient(135deg, #e67e22 , #e2bd6e) !important;
   }
-  
   .admin {
-    background: linear-gradient(135deg, #0c8c1b , #9fdf99);
-    
+      background: linear-gradient(135deg, #0c8c1b , #9fdf99) !important;
   }
   
   .card:hover {

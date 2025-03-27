@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../../styles/admin/addUser.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddUser() {
 
@@ -10,17 +11,21 @@ export default function AddUser() {
     email: '',
     password: '',
     role: ''
-  })
+  });
+
+  const navigate = useNavigate();
 
   const handleSubmit = async(e)=>{
       e.preventDefault();
 
       try {
-        const response = await axios.post('http://localhost:5000/api/auth/signup',form);
+        const response = await axios.post(`http://localhost:5000/api/auth/signup`,form);
         console.log("Response:", response.data);
         alert("Registration Successful");
         setForm({name: '', userId:'', email:'', password: '', role: ''});
+        navigate('/addUser');
       } catch (error) {
+        console.log(error);
         alert("Error, Try again!");
       }
   }
@@ -30,25 +35,25 @@ export default function AddUser() {
   }
 
   return (
-    <div>
+    <div className='container'>
      
-      <div className='form' onSubmit={handleSubmit}>
-      <h1>NEW USER</h1>
-        <label>Name :</label>
-        <input type='text' name="name" placeholder='Enter user name' required value={form.name} onChange={handleChange}/>
+      <form className='form' onSubmit={handleSubmit}>
+      <h1 className='h1-text'>NEW USER</h1>
+        <label className='label-form'>Name :</label>
+        <input type='text' name="name" placeholder='Enter user name' value={form.name} onChange={handleChange} required />
 
 
-        <label>User ID :</label>
-        <input type='text' name="userId" placeholder='Enter user ID' required value={form.userId} onChange={handleChange}/>
+        <label className='label-form'>User ID :</label>
+        <input type='text' name="userId" placeholder='Enter user ID' value={form.userId} onChange={handleChange} required/>
 
         
-        <label>Email :</label>
-        <input type='email' name="email" placeholder='Enter user email' required value={form.email} onChange={handleChange}/>
+        <label className='label-form'>Email :</label>
+        <input type='email' name="email" placeholder='Enter user email' value={form.email} onChange={handleChange} required/>
 
-        <label>Password :</label>
-        <input type="password" name="password" required value={form.password} onChange={handleChange}/>
+        <label className='label-form'>Password :</label>
+        <input type="password" name="password" value={form.password} onChange={handleChange} required/>
 
-        <label>Role :</label>
+        <label className='label-form'>Role :</label>
         <select name="role" value={form.role} onChange={handleChange} required>
                     <option value="">Select Role</option>
                     <option value="Student">Student</option>
@@ -61,7 +66,7 @@ export default function AddUser() {
 
         <button type="submit">Add User</button>
 
-      </div>
+      </form>
     </div>
   )
 }

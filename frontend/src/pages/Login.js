@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import "../styles/login.css";
 
 export default function Login() {
     const [form, setForm] = useState({
         email: "",
         password: "",
-        role: "",
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,11 +18,32 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/api/auth/signin", form);
+            const response = await axios.post('http://localhost:5000/api/auth/signin', form);
             if (response.data.token) {
-                localStorage.setItem("authToken", response.data.token);
+                localStorage.setItem('authToken', response.data.token);
+                localStorage.setItem('userRole', response.data.role);  // Store role
+                
                 alert("Login Successful");
-                setForm({ email: "", password: "", role: "" });
+
+                const role = response.data.role.toLowerCase();
+
+                setTimeout(() => {
+                    if (role === "admin") {
+                        navigate("/admin");
+                    } else if (role === "teacher") {
+                        navigate("/teacher");
+                    } else if (role === "student") {
+                        navigate("/student");
+                    } else {
+                        navigate("/"); // Default fallback route
+                    }
+
+                    // **Force full page reload if needed**:
+                    // window.location.replace("/admin");  (use respective route)
+                }, 500); // Delay navigation slightly
+
+                setForm({ email: '', password: '' });
+            
             }
         } catch (error) {
             alert("Invalid credentials, Try again!");
@@ -43,6 +66,9 @@ export default function Login() {
                     onChange={handleChange}
                 />
 
+                <br></br>
+                <br></br>
+
                 <label>Password</label>
                 <input
                     type="password"
@@ -55,13 +81,6 @@ export default function Login() {
                 
                 <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
 
-                <label>Role</label>
-                <select name="role" value={form.role} onChange={handleChange} required>
-                    <option value="">Select Role</option>
-                    <option value="Student">Student</option>
-                    <option value="Teacher">Teacher</option>
-                    <option value="Admin">Admin</option>
-                </select>
 
                 <br></br>
                 <br></br>
