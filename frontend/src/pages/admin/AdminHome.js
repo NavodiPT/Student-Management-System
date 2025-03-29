@@ -15,7 +15,7 @@ export default function AdminHome() {
           <h2>Manage Users</h2>
           <p>Add, edit, and delete students & teachers</p>
         </div>
-        <div className="card course" onClick={() => navigate('/signin')}>
+        <div className="card course" onClick={() => navigate('/courseList')}>
           <h2>Manage Courses</h2>
           <p>Add, update, or delete courses</p>
         </div>

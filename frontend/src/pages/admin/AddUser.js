@@ -23,7 +23,7 @@ export default function AddUser() {
         console.log("Response:", response.data);
         alert("Registration Successful");
         setForm({name: '', userId:'', email:'', password: '', role: ''});
-        navigate('/addUser');
+        navigate('/viewUserList');
       } catch (error) {
         console.log(error);
         alert("Error, Try again!");
