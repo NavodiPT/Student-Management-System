@@ -1,5 +1,5 @@
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
-import Home from './components/Home';
+import Home from './pages/Home';
 import StudentHome from './pages/student/StudentHome';
 import TeacherHome from './pages/teacher/TeacherHome';
 import AdminHome from './pages/admin/AdminHome';
@@ -19,7 +19,6 @@ function App() {
     <div className="App">
 
     <Routes>
-      
     <Route exact path= "/" element={<Home />}></Route>
     <Route exact path="/signin" element={<Login />}></Route>
     <Route exact path= "/student" element={<StudentHome />}></Route>
